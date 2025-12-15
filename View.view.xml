@@ -1,0 +1,36 @@
+<mvc:View
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    controllerName="ns.Sewer_Legal_Requirements.Card">
+
+    <Table id="id_Legal_Requirments" items="{legal>/legalGroups}"    showSeparators="None" alternateRowColors="true" inset="false" class="requirementsTable">
+
+        <columns>
+            <Column width="25%">
+                <!-- <Text text="REF"/> -->
+                <ObjectIdentifier title="REF" />
+            </Column>
+            <Column>
+                <!-- <Text text="REQUIREMENTS" /> -->
+                <ObjectIdentifier title="REQUIREMENTS" />
+            </Column>
+        </columns>
+
+        <items>
+            <ColumnListItem type="Inactive">
+
+                <cells>
+                    <ObjectIdentifier title="{legal>Ref}" />
+
+                    <VBox items="{legal>Items}">
+                        <items>
+                            <Link text="{legal>Requirements}" href="{legal>URL}" wrapping="true" target="_blank" class="requirementText"/>
+                        </items>
+                    </VBox>
+
+                </cells>
+            </ColumnListItem>
+        </items>
+    </Table>
+
+</mvc:View>

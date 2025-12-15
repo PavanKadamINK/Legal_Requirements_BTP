@@ -1,0 +1,22 @@
+/* Minimal CSS for UI5 Table */
+
+/* 1. Table Header Styling */
+.requirementsTable .sapMListTblHeaderCell {
+    background-color: #cfd1d2 !important;
+    color: #1d0606 !important;
+    font-weight: 700;
+    border: none !important;
+}
+
+/* 4. Requirement Link Text (in second column) */
+.requirementText {
+    text-decoration: none !important;
+    line-height: 1.6;
+}
+
+/* 5. Requirement Link Hover/Focus Effects */
+.requirementText:hover,
+.requirementText:focus {
+    text-decoration: none !important;
+    background: transparent !important;
+}
