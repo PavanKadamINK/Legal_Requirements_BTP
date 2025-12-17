@@ -53,25 +53,25 @@ sap.ui.define([
 
 		_loadData: function () {
 			debugger;
-			var params = new URLSearchParams(window.location.search);
-			var title = params.get("title");
-			title = title ? title.split("/")[0] : "";
-			console.log("Received Title:", title);
+			// var params = new URLSearchParams(window.location.search);
+			// var title = params.get("title");
+			// title = title ? title.split("/")[0] : "";
+			// console.log("Received Title:", title);
 
-			if (title.includes('%')) title = this.fullyDecode(title);
+			// if (title.includes('%')) title = this.fullyDecode(title);
 
-			if (!title) return;
+			// if (!title) return;
 			
 			var oModel = this.getOwnerComponent().getModel();
 
 			var aFilters = [];
 
-			if (title) {
-				aFilters.push(new sap.ui.model.Filter("PageName", sap.ui.model.FilterOperator.Contains, title));
-			}
+			// if (title) {
+			// 	aFilters.push(new sap.ui.model.Filter("PageName", sap.ui.model.FilterOperator.Contains, title));
+			// }
 			this.getView().setBusy(true);
-			oModel.read("/OTLegalRequirements", {
-				filters: aFilters,
+			this.getOwnerComponent().getModel().read("/OTLegalRequirements", {
+				// filters: aFilters,
 				success: function (oData) {
 					const aData = oData.results || [];
 					const oGroup = {};
