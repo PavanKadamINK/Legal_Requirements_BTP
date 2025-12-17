@@ -10,6 +10,27 @@ sap.ui.define([
 			debugger;
 			var oModel = new sap.ui.model.json.JSONModel({});
 			this.getView().setModel(oModel, "legal");
+
+			this.getView().setBusy(true);
+			this.getView().attachModelContextChange(this._onModelArrival, this);
+			this._onModelArrival();
+		},
+
+		_onModelArrival: function () {
+			debugger;
+			// Get the model from the Component
+			var oODataModel = this.getOwnerComponent().getModel();
+
+			// Check if the model is defined yet
+			if (oODataModel) {
+				// 3. Success! Stop listening so this doesn't run again
+				this.getView().detachModelContextChange(this._onModelArrival, this);
+
+				// 4. Wait for metadata to be ready before calling .read()
+				oODataModel.metadataLoaded().then(function () {
+					this._loadData();
+				}.bind(this));
+			}
 		},
 
 		fullyDecode: function (value) {
@@ -30,7 +51,7 @@ sap.ui.define([
 			return current;
 		},
 
-		onAfterRendering: function () {
+		_loadData: function () {
 			debugger;
 			var params = new URLSearchParams(window.location.search);
 			var title = params.get("title");
@@ -48,7 +69,7 @@ sap.ui.define([
 			if (title) {
 				aFilters.push(new sap.ui.model.Filter("PageName", sap.ui.model.FilterOperator.Contains, title));
 			}
-			this.byId("id_Legal_Requirments").setBusy(true);
+			this.getView().setBusy(true);
 			oModel.read("/OTLegalRequirements", {
 				filters: aFilters,
 				success: function (oData) {
@@ -80,11 +101,11 @@ sap.ui.define([
 					});
 
 					this.getView().setModel(oJsonModel, "legal");
-					this.byId("id_Legal_Requirments").setBusy(false);
+					this.getView().setBusy(false);
 
 				}.bind(this),
 				error: function (oError) {
-					this.byId("id_Legal_Requirments").setBusy(false);
+					this.getView().setBusy(false);
 				}
 			});
 
