@@ -10,6 +10,7 @@
 
 /* 4. Requirement Link Text (in second column) */
 .requirementText {
+    font-weight: normal !important;
     text-decoration: none !important;
     line-height: 1.6;
 }
