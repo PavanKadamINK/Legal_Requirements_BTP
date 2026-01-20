@@ -6,7 +6,7 @@
     <Table id="id_Legal_Requirments" items="{legal>/legalGroups}"    showSeparators="None" alternateRowColors="true" inset="false" class="requirementsTable">
 
         <columns>
-            <Column width="25%">
+            <Column width="35%">
                 <!-- <Text text="REF"/> -->
                 <ObjectIdentifier title="REF" />
             </Column>
