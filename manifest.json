@@ -45,8 +45,8 @@
 		"type": "Component",
 		"configuration": {
 			"destinations": {
-				"BMSPortal_API": {
-					"name": "BMSPortal_API",
+				"BMSPortal_API_Token": {
+					"name": "BMSPortal_API_Token",
 					"label": "BTP CAP Destination",
 					"defaultUrl": "https://winslow-mgmt-services-unit-trust-fsm-btp-dev-pt8gi5dj-w6c52d584.cfapps.ap10.hana.ondemand.com/v2/odata/v4/main"
 				}

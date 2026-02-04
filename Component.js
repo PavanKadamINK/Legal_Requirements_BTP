@@ -20,7 +20,7 @@ sap.ui.define([
                 //     console.error(oError);
                 // });
 
-                oCard.resolveDestination("BMSPortal_API").then(function (sResolvedUrl) {
+                oCard.resolveDestination("BMSPortal_API_Token").then(function (sResolvedUrl) {
                     // 2. Clean up URL (remove trailing slash if present)
                     if (sResolvedUrl.endsWith("/")) {
                         sResolvedUrl = sResolvedUrl.slice(0, -1);
